@@ -32,7 +32,7 @@ please follow the instructions below to prepare the data in directories:
 ### Training
 1. Download pretrained LLaMA2 weight from [here](https://huggingface.co/Alpha-VLLM/LLaMA2-Accessory/blob/main/finetune/sg/alpaca_llamaPeft_normBias/consolidated.00-of-01.model.pth).
 2. Download tokenizer from [here](https://huggingface.co/Alpha-VLLM/LLaMA2-Accessory/tree/main/config). 
-3. Download training data from [Dropbox].
+3. Download instruction finetuning data from [here](https://www.dropbox.com/scl/fi/m49k3g07yaigiu5i9hbyb/R2R_train_instruction_finetuning_data.json?rlkey=taxn9j258r9bqxy8uyrpuvt9i&dl=0).
 
 
 ### Testing
