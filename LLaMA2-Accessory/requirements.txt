@@ -1,0 +1,20 @@
+--extra-index-url https://download.pytorch.org/whl/cu117
+torch==2.0.1
+torchvision==0.15.2
+torchaudio==2.0.2
+pandas
+tensorboard
+fairscale
+sentencepiece
+gradio
+open_clip_torch
+fire
+packaging
+transformers
+pyyaml
+pathlib
+Ninja
+bitsandbytes
+httpx[socks]
+einops
+regex

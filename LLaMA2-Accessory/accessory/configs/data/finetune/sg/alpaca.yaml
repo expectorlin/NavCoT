@@ -1,0 +1,4 @@
+META:
+  -
+    path: '/path/to/R2R_train_instruction_finetuning_data.json'
+    type: 'text'

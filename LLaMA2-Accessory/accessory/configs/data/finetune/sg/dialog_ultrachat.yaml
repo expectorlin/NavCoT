@@ -1,0 +1,4 @@
+META:
+  -
+    path: '../data/ultrachat_fastchat_4k.json'
+    type: 'text'

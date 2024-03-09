@@ -1,0 +1,4 @@
+META:
+  -
+    path: '../data/lima_vicuna_format.json'
+    type: 'text'

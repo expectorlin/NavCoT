@@ -1,0 +1,4 @@
+META:
+  -
+    path: '../data/sharegpt.json'
+    type: 'text'
