@@ -53,7 +53,5 @@ cd finetune_src
 bash scripts/r2r.sh
 ```
 
-## Citation
-
 ## Acknowledgement
 Some of the codes are built upon [VLN-HAMT](https://github.com/cshizhe/VLN-HAMT), [VLN-SIG](https://github.com/jialuli-luka/VLN-SIG) and [LLaMA 2](https://github.com/Alpha-VLLM/LLaMA2-Accessory). Thanks them for their great works!
