@@ -32,7 +32,7 @@ please follow the instructions below to prepare the data in directories:
 ### Training
 1. Download pretrained LLaMA2 weight from [here](https://huggingface.co/Alpha-VLLM/LLaMA2-Accessory/blob/main/finetune/sg/alpaca_llamaPeft_normBias/consolidated.00-of-01.model.pth).
 2. Download tokenizer from [here](https://huggingface.co/Alpha-VLLM/LLaMA2-Accessory/tree/main/config). 
-3. Download instruction finetuning data from [here](https://www.dropbox.com/scl/fi/m49k3g07yaigiu5i9hbyb/R2R_train_instruction_finetuning_data.json?rlkey=taxn9j258r9bqxy8uyrpuvt9i&dl=0).
+3. Download instruction finetuning data from [here](https://www.dropbox.com/scl/fo/w9uc1pd4w1pxb49nmh6zs/h?rlkey=mewn6i2s50zuf3w9ot2dvmjpp&dl=0).
 
 
 ### Testing
@@ -40,17 +40,17 @@ please follow the instructions below to prepare the data in directories:
 2. Download pre-trained dVAE from [here](https://github.com/openai/DALL-E).
 3. Download pre-extracted CLIP-ViT/16 features and pre-extracted image semantics from [here](https://www.dropbox.com/sh/fftfotbac9878cc/AAD6Al1eRlbm3-lctyoKxWs9a?dl=0).
 
-## R2R Navigation
+## Navigation
 ### Training
 ```setup
 cd LLaMA2-Accessory/accessory/exps/finetune/sg
-bash alpaca_llamaPeft_normBias.sh 0,1,2,3
+bash alpaca_llamaPeft_normBias_r2r.sh 0,1,2,3 # (alpaca_llamaPeft_normBias_r4r.sh, alpaca_llamaPeft_normBias_rxr.sh)
 ```
 
 ### Testing
 ```setup
 cd finetune_src
-bash scripts/r2r.sh
+bash scripts/run_r2r.sh # (run_r4r.sh, run_rxr.sh)
 ```
 
 ## Acknowledgement
