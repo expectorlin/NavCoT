@@ -31,6 +31,15 @@ def load_instr_datasets(anno_dir, dataset, splits,args=None):
             if dataset == 'r2r':
                 with open(os.path.join(anno_dir, 'R2R_%s_enc.json' % split)) as f:
                     new_data = json.load(f)
+            elif dataset == 'r4r':
+                with open(os.path.join(anno_dir, 'R4R_%s_enc.json' % split)) as f:
+                    new_data = json.load(f)
+                    # get partial data for testing
+                    new_data = new_data[:500]
+            elif dataset == 'rxr':
+                if args.only_en:
+                    with open(os.path.join(anno_dir, 'RXR_%s_enc_en.json' % split)) as f:
+                        new_data = json.load(f)
 
         else:   # augmented data
             print('\nLoading augmented data %s for pretraining...' % os.path.basename(split))
@@ -44,18 +53,28 @@ def load_instr_datasets(anno_dir, dataset, splits,args=None):
 def construct_instrs(anno_dir, dataset, splits, tokenizer=None, max_instr_len=512,args=None):
     data = []
     for i, item in enumerate(load_instr_datasets(anno_dir, dataset, splits, args=args)):
+        if dataset == 'rxr':
+            if args.only_en:
+                new_item = dict(item)
+                if 'path_id' in item:
+                    new_item['instr_id'] = '%d_%d' % (item['path_id'], item['instruction_id'])
+                else:  # test
+                    new_item['path_id'] = new_item['instr_id'] = str(item['instruction_id'])
+                instr_tokens = ['[CLS]'] + tokenizer.tokenize(item['instruction'])[:max_instr_len - 2] + ['[SEP]']
+                new_item['instr_encoding'] = tokenizer.convert_tokens_to_ids(instr_tokens)
+                data.append(new_item)
+        else:
+            # Split multiple instructions into separate entries
+            for j, instr in enumerate(item['instructions']):
+                new_item = dict(item)
+                new_item['instr_id'] = '%s_%d' % (item['path_id'], j)
+                new_item['instruction'] = instr
 
-        # Split multiple instructions into separate entries
-        for j, instr in enumerate(item['instructions']):
-            new_item = dict(item)
-            new_item['instr_id'] = '%s_%d' % (item['path_id'], j)
-            new_item['instruction'] = instr
-
-            # if 'instr_encoding' in list(item.keys()):
-            new_item['instr_encoding'] = item['instr_encodings'][j][:max_instr_len]
-            del new_item['instructions']
-            del new_item['instr_encodings']
-            data.append(new_item)
+                # if 'instr_encoding' in list(item.keys()):
+                new_item['instr_encoding'] = item['instr_encodings'][j][:max_instr_len]
+                del new_item['instructions']
+                del new_item['instr_encodings']
+                data.append(new_item)
 
     return data
 

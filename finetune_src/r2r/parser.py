@@ -134,6 +134,8 @@ def parse_args():
                         help='url used to set up distributed training')
     parser.add_argument('--model_parallel_size', default=1, type=int)
 
+    # RXR
+    parser.add_argument('--only_en', action='store_true', default=False)
 
 
     args, _ = parser.parse_known_args()
