@@ -41,6 +41,7 @@ please follow the instructions below to prepare the data in directories:
 3. Download pre-extracted CLIP-ViT/16 features and pre-extracted image semantics from [here](https://www.dropbox.com/sh/fftfotbac9878cc/AAD6Al1eRlbm3-lctyoKxWs9a?dl=0).
 4. Download RxR English subset from [here](https://www.dropbox.com/scl/fo/ksewnjo3zt27c3fmhmsla/h?rlkey=yng9uj29gyumarbld355f33sy&dl=0).
 5. Download caption data [here](https://www.dropbox.com/scl/fi/nvl62rwykmf8nsq2hauuk/captions.tar.gz?rlkey=vw54875s8o2jwngimmzu2de52&dl=0).
+6. Download R2R val unseen subset file from [here](https://www.dropbox.com/scl/fi/aseokwnribx99mpwhe6fc/R2R_val_unseen_subset_enc.json?rlkey=lti2uce28ixzvv9m35o369t2t&st=uxoq3p88&dl=0).
 
 ## Navigation
 ### Training
