@@ -43,6 +43,23 @@ please follow the instructions below to prepare the data in directories:
 5. Download caption data [here](https://www.dropbox.com/scl/fi/nvl62rwykmf8nsq2hauuk/captions.tar.gz?rlkey=vw54875s8o2jwngimmzu2de52&dl=0).
 6. Download R2R val unseen subset file from [here](https://www.dropbox.com/scl/fi/aseokwnribx99mpwhe6fc/R2R_val_unseen_subset_enc.json?rlkey=lti2uce28ixzvv9m35o369t2t&st=uxoq3p88&dl=0).
 
+### Referenced Data Directory during Testing
+```graphql
+NavCoT/datasets
+├─ annotations
+|   ├─ captions
+|   ├─ R2R_val_seen_enc.json
+|   ├─ R2R_val_unseen_enc.json
+|   ├─ R2R_val_unseen_subset_enc.json
+|   ├─ R2R_test_enc.json
+|   ├─ .json data files of other datasets
+├─ features
+|   ├─ dvae_probs.hdf5
+|   ├─ vit-16.hdf5
+├─ connectivity
+```
+
+
 ## Navigation
 ### Training
 ```setup
@@ -56,5 +73,18 @@ cd finetune_src
 bash scripts/run_r2r.sh # (run_r4r.sh, run_rxr.sh)
 ```
 
+## Citation
+If you find this work useful, please consider citing:
+```bibtex
+@article{lin2025navcot,
+  title={Navcot: Boosting llm-based vision-and-language navigation via learning disentangled reasoning},
+  author={Lin, Bingqian and Nie, Yunshuang and Wei, Ziming and Chen, Jiaqi and Ma, Shikui and Han, Jianhua and Xu, Hang and Chang, Xiaojun and Liang, Xiaodan},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
+  year={2025},
+  publisher={IEEE}
+}
+```
+
 ## Acknowledgement
 Some of the codes are built upon [VLN-HAMT](https://github.com/cshizhe/VLN-HAMT), [VLN-SIG](https://github.com/jialuli-luka/VLN-SIG) and [LLaMA 2](https://github.com/Alpha-VLLM/LLaMA2-Accessory). Thanks them for their great works!
+
