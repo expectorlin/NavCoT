@@ -1041,15 +1041,16 @@ class Seq2SeqCMTAgent(BaseAgent):
                 nav_input = self.prompt_manager.get_prompt(mode = 'navigation', cand_inputs = cand_inputs, obs = obs, t = t)
                 nav_output = self.llm.generate(nav_input["prompts"],images=None,max_gen_len=64,temperature=self.args.temperature)
 
-                a_t = self.prompt_manager.get_output(nav_output=nav_output,
+                a_t_llm = self.prompt_manager.get_output(nav_output=nav_output,
                                                          only_options_batch=nav_input["only_options"],
                                                          cand_inputs=cand_inputs, t=t)
             else:
                 assert False
 
             if self.feedback == 'teacher':
-
                 a_t = nav_targets
+            elif self.feedback == 'argmax':
+                a_t = a_t_llm
             else:
                 print(self.feedback)
                 sys.exit('Invalid feedback option')
