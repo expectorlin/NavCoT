@@ -233,7 +233,7 @@ class Seq2SeqCMTAgent(BaseAgent):
                                                         cc['absolute_elevation'] - 0)
                     cand_index.append(cc['pointId'])
 
-                    action_text = direction + f"<{cc['caption']}>"
+                    action_text = direction + ' to ' + f"<{cc['caption']}>"
                     cand_action.append(action_text)
             if previous_angle is not None:
                 cand_action.append('stop')
